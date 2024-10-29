@@ -94,24 +94,21 @@ class RestauranteTest {
 		assertEquals(1,restaurante1.getPedidos().size());
 	}
 
-	@Test
-	void testGetMenuBase() {
-		fail("Not yet implemented");
-	}
 
 	@Test
-	void testGetMenuCombos() {
-		fail("Not yet implemented");
-	}
+	public void testCargarInformacionRestaurante() throws Exception {
+		String ruta = System.getProperty("user.dir") + "/Taller 5 Hamburguesas/data/";
+		
+	    File archivoIngredientes = new File(ruta+"ingredientes.txt");
+	    File archivoMenu = new File(ruta+"menu.txt");
+	    File archivoCombos = new File(ruta+"combos.txt");
 
-	@Test
-	void testGetIngredientes() {
-		fail("Not yet implemented");
-	}
+	    restaurante1.cargarInformacionRestaurante(archivoIngredientes, archivoMenu, archivoCombos);
 
-	@Test
-	void testCargarInformacionRestaurante() {
-		fail("Not yet implemented");
+	    // Verificamos que las listas no estén vacías después de la carga
+	    assertFalse(restaurante1.getIngredientes().isEmpty());
+	    assertFalse(restaurante1.getMenuBase().isEmpty());
+	    assertFalse(restaurante1.getMenuCombos().isEmpty());
 	}
 
 }
